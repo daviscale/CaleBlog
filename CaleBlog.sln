@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaleBlog.WebUI", "CaleBlog\CaleBlog.WebUI.csproj", "{5B49B62A-7CEE-4459-AA20-4CCC737CD036}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{94F51B5B-39B9-41E6-842F-45C963B67CD7}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{DFE0FE04-1551-4B40-BE45-6ED242650AB9}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\CaleBlog-WAWS-dev.json = PublishScripts\Configurations\CaleBlog-WAWS-dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaleBlog.Domain", "ClassLibrary1\CaleBlog.Domain.csproj", "{65774150-FE12-4F1D-9FBD-5705D3FCE48A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaleBlog.UnitTests", "CaleBlog.UnitTests\CaleBlog.UnitTests.csproj", "{60AF9480-B5FD-40EF-8BF5-1EB82A90E763}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B49B62A-7CEE-4459-AA20-4CCC737CD036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B49B62A-7CEE-4459-AA20-4CCC737CD036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B49B62A-7CEE-4459-AA20-4CCC737CD036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B49B62A-7CEE-4459-AA20-4CCC737CD036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65774150-FE12-4F1D-9FBD-5705D3FCE48A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65774150-FE12-4F1D-9FBD-5705D3FCE48A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65774150-FE12-4F1D-9FBD-5705D3FCE48A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65774150-FE12-4F1D-9FBD-5705D3FCE48A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60AF9480-B5FD-40EF-8BF5-1EB82A90E763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60AF9480-B5FD-40EF-8BF5-1EB82A90E763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60AF9480-B5FD-40EF-8BF5-1EB82A90E763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60AF9480-B5FD-40EF-8BF5-1EB82A90E763}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFE0FE04-1551-4B40-BE45-6ED242650AB9} = {94F51B5B-39B9-41E6-842F-45C963B67CD7}
+	EndGlobalSection
+EndGlobal
