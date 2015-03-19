@@ -101,6 +101,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CaleBlog\CaleBlog.WebUI.csproj">
+      <Project>{5b49b62a-7cee-4459-aa20-4ccc737cd036}</Project>
+      <Name>CaleBlog.WebUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary1\CaleBlog.Domain.csproj">
+      <Project>{65774150-fe12-4f1d-9fbd-5705d3fce48a}</Project>
+      <Name>CaleBlog.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
