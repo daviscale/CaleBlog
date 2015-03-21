@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+
+using CaleBlog.Domain.Abstract;
+using CaleBlog.Domain.Entities;
+
+using Moq;
+
 using Ninject;
 
 namespace CaleBlog.WebUI.Infrastructure
@@ -27,7 +34,14 @@ namespace CaleBlog.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            // put bindings here
+            Mock<IPostsRepository> mock = new Mock<IPostsRepository>();
+            mock.Setup(m => m.Posts).Returns(new List<Post> { 
+                new Post { Title = "Title 1", Body = "body 1" },
+                new Post { Title = "title 2", Body = "body 2" },
+                new Post { Title = "title 3", Body = "body 3" }
+            });
+
+            kernel.Bind<IPostsRepository>().ToConstant(mock.Object);
         }
     }
 }
