@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using CaleBlog.Domain.Abstract;
 using CaleBlog.Domain.Entities;
 
-namespace CaleBlog.Controllers
+namespace CaleBlog.WebUI.Controllers
 {
     public class PostController : Controller
     {

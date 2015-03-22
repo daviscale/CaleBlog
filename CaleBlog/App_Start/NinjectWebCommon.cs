@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CaleBlog.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CaleBlog.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CaleBlog.WebUI.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CaleBlog.WebUI.App_Start.NinjectWebCommon), "Stop")]
 
-namespace CaleBlog.App_Start
+namespace CaleBlog.WebUI.App_Start
 {
     using System;
     using System.Web;
