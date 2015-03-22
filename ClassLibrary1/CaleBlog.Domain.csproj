@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IPostsRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EFPostRepository.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
