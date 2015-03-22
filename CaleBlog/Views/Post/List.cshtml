@@ -1,0 +1,16 @@
+﻿@using CaleBlog.Domain.Entities;
+
+@model IEnumerable<Post>
+
+@{
+    ViewBag.Title = "Posts";
+}
+
+@foreach (var post in Model)
+{
+    <div>
+        <h3>@post.Title</h3>
+        <h4>@post.Body</h4>
+    </div>
+}
+
