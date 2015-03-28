@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using CaleBlog.Domain.Abstract;
 using CaleBlog.Domain.Entities;
+using CaleBlog.WebUI.Models;
 
 namespace CaleBlog.WebUI.Controllers
 {
@@ -21,7 +22,17 @@ namespace CaleBlog.WebUI.Controllers
 
         public ViewResult List(int page = 1)
         {
-            return View(repository.Posts.OrderBy(post => post.PostID).Skip((page - 1) * PageSize).Take(PageSize));
+            PostListViewModel model = new PostListViewModel
+            {
+                Posts = repository.Posts.OrderBy(post => post.PostID).Skip((page - 1) * PageSize).Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = repository.Posts.Count()
+                }
+            };
+            return View(model);
         }
     }
 }
