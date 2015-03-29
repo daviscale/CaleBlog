@@ -1,12 +1,12 @@
 ﻿@using CaleBlog.Domain.Entities;
 
-@model IEnumerable<Post>
+@model CaleBlog.WebUI.Models.PostListViewModel
 
 @{
     ViewBag.Title = "Posts";
 }
 
-@foreach (var post in Model)
+@foreach (var post in Model.Posts)
 {
     <div>
         <h3>@post.Title</h3>
