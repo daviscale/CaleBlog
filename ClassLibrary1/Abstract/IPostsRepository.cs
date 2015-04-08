@@ -11,5 +11,11 @@ namespace CaleBlog.Domain.Abstract
     public interface IPostsRepository
     {
         IEnumerable<Post> Posts { get; }
+
+        void SavePost(Post post);
+
+        Post DeletePost(int postId);
     }
+
+    
 }
