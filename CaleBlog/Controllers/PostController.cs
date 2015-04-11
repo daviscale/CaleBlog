@@ -34,5 +34,42 @@ namespace CaleBlog.WebUI.Controllers
             };
             return View(model);
         }
+
+        public ViewResult Edit(int postId)
+        {
+            Post post = repository.Posts.FirstOrDefault(pst => pst.PostID == postId);
+            return View(post);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SavePost(post);
+                TempData["message"] = string.Format("{0} has been saved", post.Title);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(post);
+            }
+        }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Post());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int postId)
+        {
+            Post deletedPost = repository.DeletePost(postId);
+            if (deletedPost != null)
+            {
+                TempData["message"] = string.Format("{0} was deleted", deletedPost.Title);
+            }
+            return RedirectToAction("List");
+        }
     }
 }
