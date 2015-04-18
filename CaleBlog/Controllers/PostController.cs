@@ -35,7 +35,17 @@ namespace CaleBlog.WebUI.Controllers
             return View(model);
         }
 
+        public ViewResult View(int postId)
+        {
+            return ViewOrEditPost(postId);
+        }
+
         public ViewResult Edit(int postId)
+        {
+            return ViewOrEditPost(postId);
+        }
+
+        private ViewResult ViewOrEditPost(int postId)
         {
             Post post = repository.Posts.FirstOrDefault(pst => pst.PostID == postId);
             return View(post);
