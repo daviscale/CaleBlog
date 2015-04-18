@@ -48,7 +48,7 @@ namespace CaleBlog.WebUI.Controllers
             {
                 repository.SavePost(post);
                 TempData["message"] = string.Format("{0} has been saved", post.Title);
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             else
             {
