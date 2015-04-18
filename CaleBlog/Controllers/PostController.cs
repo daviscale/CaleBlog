@@ -68,7 +68,7 @@ namespace CaleBlog.WebUI.Controllers
 
         public ViewResult Create()
         {
-            return View("Edit", new Post());
+            return View("Create", new Post());
         }
 
         [HttpPost]
