@@ -21,8 +21,14 @@
             {
                 <tr>
                     <td class="text-left">@post.Title</td>
-                    <td>@Html.ActionLink("Edit", "Edit", new { post.PostID })</td>
-                    <td>@Html.ActionLink("Delete", "Delete", new { post.PostID })</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { post.PostID }, new { @class="btn btn-default" })</td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "Post"))
+                        {
+                            @Html.Hidden("PostID", post.PostID)
+                            <input type="submit" value="Delete" class="btn btn-default"/>
+                        }
+                    </td>
                 </tr>
             }
         </table>
