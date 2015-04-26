@@ -21,6 +21,12 @@ namespace CaleBlog.WebUI
 
             routes.MapRoute(
                 name: null,
+                url: "Post/List",
+                defaults: new { controller = "Post", action = "List" }
+            );
+
+            routes.MapRoute(
+                name: null,
                 url: "Page{page}",
                 defaults: new
                 {
@@ -34,6 +40,7 @@ namespace CaleBlog.WebUI
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Post", action = "List", id = UrlParameter.Optional }
             );
+
 
         }
     }
