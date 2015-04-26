@@ -37,14 +37,21 @@ namespace CaleBlog.WebUI.Controllers
 
         public ViewResult Home()
         {
-            Post post = repository.Posts.OrderByDescending(pst => pst.PostID).ElementAt(0);
-            if (post != null)
+            int maxRecentItems = 3;
+            IEnumerable<Post> posts = repository.Posts.OrderByDescending(pst => pst.PostID).Take(maxRecentItems + 1);
+            if (posts != null)
             {
-                return View("View", post);
+                var homeViewModel = new HomeViewModel
+                {
+                    RecentPosts = posts.Skip(1),
+                    HomePost = posts.ElementAt(0)
+                };
+                
+                return View(homeViewModel);
             }
             else
             {
-                return View("View", new Post());
+                return View(new HomeViewModel());
             }
         }
 
