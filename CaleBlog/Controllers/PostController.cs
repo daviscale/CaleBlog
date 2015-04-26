@@ -14,6 +14,7 @@ namespace CaleBlog.WebUI.Controllers
     {
         private IPostsRepository repository;
         public int PageSize = 4;
+        public int MaxRecentItems = 3;
 
         public PostController(IPostsRepository postRepository)
         {
@@ -37,8 +38,7 @@ namespace CaleBlog.WebUI.Controllers
 
         public ViewResult Home()
         {
-            int maxRecentItems = 3;
-            IEnumerable<Post> posts = repository.Posts.OrderByDescending(pst => pst.PostID).Take(maxRecentItems + 1);
+            IEnumerable<Post> posts = repository.Posts.OrderByDescending(pst => pst.PostID).Take(MaxRecentItems + 1);
             if (posts != null)
             {
                 var homeViewModel = new HomeViewModel

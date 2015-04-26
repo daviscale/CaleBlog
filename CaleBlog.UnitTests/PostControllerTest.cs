@@ -64,5 +64,39 @@ namespace CaleBlog.UnitTests
             Assert.AreEqual(pagingInfo.TotalItems, 5);
             Assert.AreEqual(pagingInfo.TotalPages, 2);
         }
+
+        [TestMethod]
+        public void Can_Send_Non_Empty_Home_Page()
+        {
+            // Arrange
+            Mock<IPostsRepository> mock = new Mock<IPostsRepository>();
+            mock.Setup(m => m.Posts).Returns(MockPostRepository);
+            PostController controller = new PostController(mock.Object);
+            controller.MaxRecentItems = 2;
+
+            // Act
+            HomeViewModel model = (HomeViewModel)controller.Home().Model;
+
+            // Assert
+            Assert.AreEqual(model.HomePost.Title, "IBM post");
+            Assert.AreEqual(model.RecentPosts.ElementAt(0).Title, "Oracle post");
+            Assert.AreEqual(model.RecentPosts.ElementAt(1).Title, "Apple post");
+        }
+
+        [TestMethod]
+        public void Can_Send_Empty_Home_Page()
+        {
+            // Arrange
+            Mock<IPostsRepository> mock = new Mock<IPostsRepository>();
+            mock.Setup(m => m.Posts).Returns(new Post[] { });
+            PostController controller = new PostController(mock.Object);
+
+            // Act
+            HomeViewModel model = (HomeViewModel)controller.Home().Model;
+
+            // Assert
+            Assert.IsNull(model.HomePost);
+            Assert.IsNull(model.RecentPosts);
+        }
     }
 }
