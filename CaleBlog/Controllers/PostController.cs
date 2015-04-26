@@ -35,6 +35,19 @@ namespace CaleBlog.WebUI.Controllers
             return View(model);
         }
 
+        public ViewResult Home()
+        {
+            Post post = repository.Posts.OrderByDescending(pst => pst.PostID).ElementAt(0);
+            if (post != null)
+            {
+                return View("View", post);
+            }
+            else
+            {
+                return View("View", new Post());
+            }
+        }
+
         public ViewResult View(int postId)
         {
             return ViewOrEditPost(postId);

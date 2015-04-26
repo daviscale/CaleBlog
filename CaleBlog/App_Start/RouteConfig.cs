@@ -14,6 +14,12 @@ namespace CaleBlog.WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Default",
+                url: "",
+                defaults: new { controller = "Post", action = "Home" }
+            );
+
+            routes.MapRoute(
                 name: null,
                 url: "Page{page}",
                 defaults: new
@@ -22,12 +28,13 @@ namespace CaleBlog.WebUI
                     action = "List"
                 }
             );
-            
+
             routes.MapRoute(
-                name: "Default",
+                name: null,
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Post", action = "List", id = UrlParameter.Optional }
             );
+
         }
     }
 }
