@@ -60,6 +60,7 @@ namespace CaleBlog.WebUI.Controllers
             return ViewOrEditPost(postId);
         }
 
+        [Authorize]
         public ViewResult Edit(int postId)
         {
             return ViewOrEditPost(postId);
@@ -71,6 +72,7 @@ namespace CaleBlog.WebUI.Controllers
             return View(post);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Edit(Post post)
         {
@@ -86,11 +88,13 @@ namespace CaleBlog.WebUI.Controllers
             }
         }
 
+        [Authorize]
         public ViewResult Create()
         {
             return View("Create", new Post());
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Delete(int postId)
         {

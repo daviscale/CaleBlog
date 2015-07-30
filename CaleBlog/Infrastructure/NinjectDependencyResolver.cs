@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using CaleBlog.Domain.Abstract;
 using CaleBlog.Domain.Concrete;
 using CaleBlog.Domain.Entities;
+using CaleBlog.WebUI.Infrastructure.Abstract;
+using CaleBlog.WebUI.Infrastructure.Concrete;
 
 using Moq;
 
@@ -36,6 +38,7 @@ namespace CaleBlog.WebUI.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IPostsRepository>().To<EFPostRepository>();
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }
